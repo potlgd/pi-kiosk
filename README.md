@@ -1,6 +1,6 @@
 # pi-kiosk
 
-This tiny repo is hopefully useful for turning a Raspberry Pi into a public information kiosk. More documentation than code, these are the steps for getting a full-screen Chromium browser displaying a specific URL. The original inspiration was to place a large IAmResponding display in a fire station for quick reference responder updates, but it is also generally useful for showing any web-based content in a kiosk-type arrangement.
+This tiny repo is hopefully useful for turning a Raspberry Pi into a public information kiosk. More documentation than code, these are the steps for getting a full-screen Chromium browser displaying a specific URL. The original inspiration was to place a large [IAmResponding](https://iamresponding.com/) display in a fire station for quick reference responder updates, but it is also generally useful for showing any web-based content in a kiosk-type arrangement.
 
 ---
 

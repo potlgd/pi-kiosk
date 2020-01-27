@@ -1,0 +1,16 @@
+{
+  "name": "pi-kiosk",
+  "version": "1.1.0",
+  "description": "Start Chromium Browser Full-Screen and (Optionally) Login",
+  "repository": "https://github.com/potlgd/pi-kiosk.git",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris M. Miller",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer-core": "^2.0.0"
+  }
+}

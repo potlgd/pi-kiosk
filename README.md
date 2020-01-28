@@ -75,7 +75,7 @@ Make an app entry in the `pi-kiosk.desktop` file:
 ```
 [Desktop Entry]
 Type=Application
-Name=JS Kiosk
+Name=PI Kiosk
 Comment=Start a Chromium Browser and Login to Site
 NoDisplay=false
 Exec=env AGENCY=firedepartment node /home/pi/pi-kiosk/index.js

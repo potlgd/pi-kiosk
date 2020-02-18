@@ -2,6 +2,8 @@
 
 This tiny repo is hopefully useful for turning a Raspberry Pi into a public information kiosk. More documentation than code, these are the steps for getting a full-screen Chromium browser displaying a specific URL. The original inspiration was to place a large [IAmResponding](https://iamresponding.com/) display in a fire station for quick reference responder updates, but it is also generally useful for showing any web-based content in a kiosk-type arrangement.
 
+**Note on new IaR Dashboard:** IaR seems to be updating their login pages, which will affect how well this script is able to login. So far, I am not getting the same login screen consistently, so some fiddling may be required. For the new login screen, use the "firedepartment-newiar" example config.
+
 ---
 
 ## Quick Start on Raspberry Pi

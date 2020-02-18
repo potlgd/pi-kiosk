@@ -70,7 +70,8 @@ const firedepartment-newiar = {
 
 const config = {
     signagesite,
-    firedepartment
+    firedepartment,
+    firedepartment-newiar
 };
 
 const agency = process.env.AGENCY;

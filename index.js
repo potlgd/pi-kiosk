@@ -24,6 +24,15 @@ async function run() {
     await page.setGeolocation({latitude: CONFIG.lat, longitude: CONFIG.long});
   }
 
+  if (CONFIG.useeucookie) {
+    // Below code is only needed for sites with an EU cookie interstitial
+    const EU_COOKIE_BUTTON_SELECTOR = CONFIG.eu_cookie_selector;
+
+    await page.waitForSelector(EU_COOKIE_BUTTON_SELECTOR);
+
+    await page.click(EU_COOKIE_BUTTON_SELECTOR);
+  }
+
   if (CONFIG.uselogin) {
     // Below code is only needed for sites with login required
     const LOGIN_BUTTON_SELECTOR = CONFIG.login_button_selector;

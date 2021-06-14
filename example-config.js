@@ -34,7 +34,7 @@ const firedepartment = {
     useeucookie: true,
     eu_cookie_selector: '#rcc-confirm-button',
     uselogin: true,
-    login_button_selector: '#gatsby-focus-wrapper > header > div.container-fluid > nav > div > ul > li:nth-child(6) > a',
+    login_button_selector: '#gatsby-focus-wrapper > header > div.container-fluid > nav > div > ul > li:nth-child(7) > a',
     username_selector: '#memberfname',
     password_selector: '#memberpwd',
     rememberme_selector: '#loginForm > div.checkbox-container > label > span',

@@ -35,10 +35,10 @@ const firedepartment = {
     eu_cookie_selector: '#rcc-confirm-button',
     uselogin: true,
     login_button_selector: '#gatsby-focus-wrapper > header > div.container-fluid > nav > div > ul > li:nth-child(7) > a',
-    username_selector: '#memberfname',
-    password_selector: '#memberpwd',
-    rememberme_selector: '#loginForm > div.checkbox-container > label > span',
-    login_selector: '#login',
+    username_selector: '#Input_Username',
+    password_selector: '#Input_Password',
+    rememberme_selector: 'body > div.split-page > div.container-fluid > div > div.col-xl-7.col-lg-7.left-border > div.left-wrap > div > div > form > div.checkbox-container > label > span',
+    login_selector: 'body > div.split-page > div.container-fluid > div > div.col-xl-7.col-lg-7.left-border > div.left-wrap > div > div > form > div.row.mt-4 > div > button.btn.btn-iar.me-3',
 
     useagency: true,
     agency_selector: '#ddlsubsciribers'

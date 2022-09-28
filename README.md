@@ -65,10 +65,27 @@ The `npm install` step above will install the javascript module dependencies (cr
 
 ## Setting up Autostart
 
-There are several ways to handle autostarts in Raspbian. Since the default is that the "pi" user is auto-logged in, I found it most straightforward to use that user's personal autostart. To autostart on login/boot, create a `/home/pi/.config/autostart/pi-kiosk.desktop` file:
+There are several ways to handle autostarts in Raspbian. Since the default is that the "pi" user is auto-logged in, I found it most straightforward to use that user's personal autostart.
+
+In later versions of Raspbian, I've found that autostart tends to get going before the network is ready, which can hamper this process. The recommendations are to use `raspi-config` to "Wait for Network Connection on Boot", but this didn't seem to be effective for me. Thus, this ugly little hack.
+
+First, create a short shell script with a delay built in:
 
 ```
 mkdir -p ~/.config/autostart
+vi ~/.config/autostart/pi-kiosk.sh
+```
+Content:
+```
+#!/bin/bash
+sleep 10
+env AGENCY=firedepartment node /home/pi/pi-kiosk/index.js
+```
+Make sure you set the **AGENCY** variable above.
+
+Then, create a `/home/pi/.config/autostart/pi-kiosk.desktop` file:
+
+```
 vi ~/.config/autostart/pi-kiosk.desktop
 ```
 
@@ -80,7 +97,7 @@ Type=Application
 Name=PI Kiosk
 Comment=Start a Chromium Browser and Login to Site
 NoDisplay=false
-Exec=env AGENCY=firedepartment node /home/pi/pi-kiosk/index.js
+Exec=/home/pi/.config/autostart/pi-kiosk.sh
 NotShowIn=GNOME;KDE;XFCE;
 ```
 
@@ -94,7 +111,7 @@ Create a file at an appropriate location based on the browser you have installed
 
     /etc/opt/chrome/policies/managed/managed_policies.json
     ..or..
-    /etc/chromium-browser/polices/managed/managed_policies.json
+    /etc/chromium/polices/managed/managed_policies.json
 
 with content:
 

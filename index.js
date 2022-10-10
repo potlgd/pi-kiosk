@@ -35,15 +35,16 @@ async function run() {
 
   if (CONFIG.uselogin) {
     // Below code is only needed for sites with login required
-    const LOGIN_BUTTON_SELECTOR = CONFIG.login_button_selector;
+    // LOGIN_BUTTON_SELECTOR is only needed if the site has an interstitial page offering "login"
+    // const LOGIN_BUTTON_SELECTOR = CONFIG.login_button_selector;
     const USERNAME_SELECTOR = CONFIG.username_selector;
     const PASSWORD_SELECTOR = CONFIG.password_selector;
     const REMEMBERME_SELECTOR = CONFIG.rememberme_selector;
     const LOGIN_SELECTOR = CONFIG.login_selector;
 
-    await page.waitForSelector(LOGIN_BUTTON_SELECTOR);
+    // await page.waitForSelector(LOGIN_BUTTON_SELECTOR);
 
-    await page.click(LOGIN_BUTTON_SELECTOR);
+    // await page.click(LOGIN_BUTTON_SELECTOR);
 
     await page.waitForSelector(LOGIN_SELECTOR);
 

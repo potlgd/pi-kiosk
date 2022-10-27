@@ -34,6 +34,7 @@ const firedepartment = {
     useeucookie: true,
     eu_cookie_selector: '#accept-policy',
     uselogin: true,
+    login_button_selector: '#gatsby-focus-wrapper > header > div.container-fluid > nav > div > ul > li:nth-child(7) > a',
     username_selector: '#Input_Username',
     password_selector: '#Input_Password',
     rememberme_selector: 'body > div.split-page > div.container-fluid > div > div.col-xl-7.col-lg-7.left-border > div.left-wrap > div > div > form > div.checkbox-container > label > span',

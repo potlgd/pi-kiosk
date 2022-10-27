@@ -36,15 +36,21 @@ async function run() {
   if (CONFIG.uselogin) {
     // Below code is only needed for sites with login required
     // LOGIN_BUTTON_SELECTOR is only needed if the site has an interstitial page offering "login"
-    // const LOGIN_BUTTON_SELECTOR = CONFIG.login_button_selector;
+    const LOGIN_BUTTON_SELECTOR = CONFIG.login_button_selector;
     const USERNAME_SELECTOR = CONFIG.username_selector;
     const PASSWORD_SELECTOR = CONFIG.password_selector;
     const REMEMBERME_SELECTOR = CONFIG.rememberme_selector;
     const LOGIN_SELECTOR = CONFIG.login_selector;
 
-    // await page.waitForSelector(LOGIN_BUTTON_SELECTOR);
-
-    // await page.click(LOGIN_BUTTON_SELECTOR);
+    // IaR seems to be flipping back and forth on a "login" interstitial page.
+    // Try to be a bit more elegant.
+    try {
+      await page.waitForSelector(LOGIN_BUTTON_SELECTOR);
+      await page.click(LOGIN_BUTTON_SELECTOR);
+    }
+    catch(err) {
+      // login button didn't appear. Try to proceed without it.
+    }
 
     await page.waitForSelector(LOGIN_SELECTOR);
 

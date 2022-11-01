@@ -38,7 +38,7 @@ const firedepartment = {
     username_selector: '#Input_Username',
     password_selector: '#Input_Password',
     rememberme_selector: 'body > div.split-page > div.container-fluid > div > div.col-xl-7.col-lg-7.left-border > div.left-wrap > div > div > form > div.checkbox-container > label > span',
-    login_selector: 'body > div.split-page > div.container-fluid > div > div.col-xl-7.col-lg-7.left-border > div.left-wrap > div > div > form > div.row.mt-4 > div > button.btn.btn-iar.me-3',
+    login_selector: 'body > div.login-section.split-page > div > div > div:nth-child(1) > div > div.left-content > div > form > div.row.my-mt0-mob-4 > div:nth-child(1) > div > button',
 
     useagency: true,
     agency_selector: '#ddlsubsciribers'

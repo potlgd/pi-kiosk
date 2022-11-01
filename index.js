@@ -28,9 +28,13 @@ async function run() {
     // Below code is only needed for sites with an EU cookie interstitial
     const EU_COOKIE_BUTTON_SELECTOR = CONFIG.eu_cookie_selector;
 
-    await page.waitForSelector(EU_COOKIE_BUTTON_SELECTOR);
-
-    await page.click(EU_COOKIE_BUTTON_SELECTOR);
+    try {
+      await page.waitForSelector(EU_COOKIE_BUTTON_SELECTOR);
+      await page.click(EU_COOKIE_BUTTON_SELECTOR);
+    }
+    catch(err) {
+      console.log(err);
+    }
   }
 
   if (CONFIG.uselogin) {
@@ -43,31 +47,63 @@ async function run() {
     const LOGIN_SELECTOR = CONFIG.login_selector;
 
     // IaR seems to be flipping back and forth on a "login" interstitial page.
-    // Try to be a bit more elegant.
+    // If it's not there, this will timeout in 30 seconds and proceed.
     try {
       await page.waitForSelector(LOGIN_BUTTON_SELECTOR);
       await page.click(LOGIN_BUTTON_SELECTOR);
     }
     catch(err) {
-      // login button didn't appear. Try to proceed without it.
+      // login interstitial didn't appear. Proceed without it.
+      console.log(err);
     }
 
-    await page.waitForSelector(LOGIN_SELECTOR);
+    try {
+      await page.waitForSelector(LOGIN_SELECTOR);
+    }
+    catch(err) {
+      console.log(err);
+    }
 
     if (CONFIG.useagency) {
       const AGENCY_SELECTOR = CONFIG.agency_selector;
-      await page.click(AGENCY_SELECTOR);
-      await page.keyboard.type(CONFIG.agency);
+      try {
+        await page.click(AGENCY_SELECTOR);
+        await page.keyboard.type(CONFIG.agency);
+      }
+      catch(err) {
+        console.log(err);
+      }
     }
 
-    await page.click(USERNAME_SELECTOR);
-    await page.keyboard.type(CONFIG.username);
+    try {
+      await page.click(USERNAME_SELECTOR);
+      await page.keyboard.type(CONFIG.username);
+    }
+    catch(err) {
+      console.log(err);
+    }
 
-    await page.click(PASSWORD_SELECTOR);
-    await page.keyboard.type(CONFIG.password);
+    try {
+      await page.click(PASSWORD_SELECTOR);
+      await page.keyboard.type(CONFIG.password);
+    }
+    catch(err) {
+      console.log(err);
+    }
 
-    await page.click(REMEMBERME_SELECTOR);
-    await page.click(LOGIN_SELECTOR);
+    try {
+      await page.click(REMEMBERME_SELECTOR);
+    }
+    catch(err) {
+      console.log(err);
+    }
+
+    try {
+      await page.click(LOGIN_SELECTOR);
+    }
+    catch(err) {
+      console.log(err);
+    }
   }
 }
 

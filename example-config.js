@@ -32,9 +32,10 @@ const firedepartment = {
 
     // If using IAmResponding, you shouldn't need to change these:
     useeucookie: true,
-    eu_cookie_selector: '#accept-policy',
+    eu_cookie_selector: '#moove_gdpr_cookie_info_bar > div > div > div.moove-gdpr-button-holder > button.mgbutton.moove-gdpr-infobar-allow-all.gdpr-fbo-0',
+    eu_cookie_selector_2: '#accept-policy',
     uselogin: true,
-    login_button_selector: '#gatsby-focus-wrapper > header > div.container-fluid > nav > div > ul > li:nth-child(7) > a',
+    login_button_selector: '#menu-item-27 > a',
     username_selector: '#Input_Username',
     password_selector: '#Input_Password',
     rememberme_selector: 'body > div.split-page > div.container-fluid > div > div.col-xl-7.col-lg-7.left-border > div.left-wrap > div > div > form > div.checkbox-container > label > span',

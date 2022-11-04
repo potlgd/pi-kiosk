@@ -57,6 +57,20 @@ async function run() {
       console.log(err);
     }
 
+    // SECOND eucookie button..
+    if (CONFIG.useeucookie) {
+      // Below code is only needed for sites with an EU cookie interstitial
+      const EU_COOKIE_BUTTON_SELECTOR = CONFIG.eu_cookie_selector_2;
+
+      try {
+        await page.waitForSelector(EU_COOKIE_BUTTON_SELECTOR);
+        await page.click(EU_COOKIE_BUTTON_SELECTOR);
+      }
+      catch(err) {
+        console.log(err);
+      }
+    }
+
     try {
       await page.waitForSelector(LOGIN_SELECTOR);
     }

@@ -11,6 +11,6 @@
   "author": "Chris M. Miller",
   "license": "ISC",
   "dependencies": {
-    "puppeteer-core": "^2.1.1"
+    "puppeteer-core": "^22.3.0"
   }
 }

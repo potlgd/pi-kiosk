@@ -73,6 +73,7 @@ First, create a short shell script with a delay built in:
 ```
 mkdir -p ~/.config/autostart
 vi ~/.config/autostart/pi-kiosk.sh
+chmod +x ~/.config/autostart/pi-kiosk.sh
 ```
 Content:
 ```

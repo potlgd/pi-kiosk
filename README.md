@@ -9,7 +9,7 @@ This tiny repo is hopefully useful for turning a Raspberry Pi into a public info
 ## Quick Start on Raspberry Pi
 
 1. Install [Raspbian with Desktop](https://www.raspberrypi.org/downloads/raspbian/)
-2. After boot, `apt-get install npm xscreensaver unclutter`
+2. After boot, `apt-get install npm xscreensaver`
 3. Adjust overscan as needed (see below)
 4. Disable screen saver (optional)
 5. Install this app tree in `/home/pi/pi-kiosk`
@@ -27,7 +27,6 @@ Step 2 above recommends a few package installs:
 
 * npm - Node Package Manager - this allows the later use of the [puppeteer Node.js module](https://github.com/puppeteer/puppeteer/), which is critical for this solution.
 * xscreensaver - Installing the xscreensaver package is what allows the adjustment of the screensaver settings (to disable them). The default in Raspbian appears to be screen blanking after some period, which is undesirable for this application.
-* unclutter - hides the mouse cursor in X after a period of inactivity.
 
 ---
 
@@ -111,7 +110,7 @@ Create a file at an appropriate location based on the browser you have installed
 
     /etc/opt/chrome/policies/managed/managed_policies.json
     ..or..
-    /etc/chromium/polices/managed/managed_policies.json
+    /etc/chromium/policies/managed/managed_policies.json
 
 with content:
 

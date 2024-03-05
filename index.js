@@ -6,14 +6,16 @@ async function run() {
   const browser = await puppeteer.launch({
 	executablePath: CONFIG.chromepath,
 	headless: false,
-	defaultViewPort: null,
-	args: ['--disable-infobars', '--start-fullscreen', CONFIG.kioskurl],
+	defaultViewPort: { width: CONFIG.dispWidth, height: CONFIG.dispHeight },
+	args: ['--kiosk', '--noerrdialogs', '--disable-infobars', '--no-first-run', '--ozone-platform=wayland', '--enable-features=OverlayScrollbar', '--start-maximized', CONFIG.kioskurl],
 	ignoreDefaultArgs: ['--enable-viewport'],
 	slowMo: 50
 	});
   const pages = await browser.pages();
   const page = pages[0];
-  await page._client.send('Emulation.clearDeviceMetricsOverride');
+  const client = await page.target().createCDPSession();
+  await client.send('Emulation.clearDeviceMetricsOverride');
+  await page.setViewport({ width: CONFIG.dispWidth, height: CONFIG.dispHeight });
 
   await page.goto(CONFIG.kioskurl);
 
@@ -46,19 +48,21 @@ async function run() {
     const REMEMBERME_SELECTOR = CONFIG.rememberme_selector;
     const LOGIN_SELECTOR = CONFIG.login_selector;
 
-    // IaR seems to be flipping back and forth on a "login" interstitial page.
-    // If it's not there, this will timeout in 30 seconds and proceed.
-    try {
-      await page.waitForSelector(LOGIN_BUTTON_SELECTOR);
-      await page.click(LOGIN_BUTTON_SELECTOR);
-    }
-    catch(err) {
-      // login interstitial didn't appear. Proceed without it.
-      console.log(err);
+    if (CONFIG.useinterstitiallogin) {
+        // IaR seems to be flipping back and forth on a "login" interstitial page.
+        // If it's not there, this will timeout in 30 seconds and proceed.
+        try {
+          await page.waitForSelector(LOGIN_BUTTON_SELECTOR);
+          await page.click(LOGIN_BUTTON_SELECTOR);
+        }
+        catch(err) {
+          // login interstitial didn't appear. Proceed without it.
+          console.log(err);
+        }
     }
 
     // SECOND eucookie button..
-    if (CONFIG.useeucookie) {
+    if (CONFIG.use2ndeucookie) {
       // Below code is only needed for sites with an EU cookie interstitial
       const EU_COOKIE_BUTTON_SELECTOR = CONFIG.eu_cookie_selector_2;
 

@@ -82,25 +82,18 @@ env AGENCY=firedepartment node /home/pi/pi-kiosk/index.js
 ```
 Make sure you set the **AGENCY** variable above.
 
-Then, create a `/home/pi/.config/autostart/pi-kiosk.desktop` file:
+Then, at the bottom of your `/home/pi/.config/wayfire.ini` file, add an [autostart] section:
 
 ```
 vi ~/.config/autostart/pi-kiosk.desktop
 ```
 
-Make an app entry in the `pi-kiosk.desktop` file:
 
 ```
-[Desktop Entry]
-Type=Application
-Name=PI Kiosk
-Comment=Start a Chromium Browser and Login to Site
-NoDisplay=false
-Exec=/home/pi/.config/autostart/pi-kiosk.sh
-NotShowIn=GNOME;KDE;XFCE;
+[autostart]
+xdg-autostart = lxsession-xdg-autostart
+pi-kiosk = /home/pi/.config/autostart/pi-kiosk.sh
 ```
-
-Make sure you set the **AGENCY** variable in the autostart file.
 
 ## Hide Chrome Warnings
 
@@ -119,7 +112,7 @@ with content:
 
 ## License
 
-Copyright 2020, Chris M. Miller
+Copyright 2024, Chris M. Miller
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 

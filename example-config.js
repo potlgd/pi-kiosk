@@ -9,7 +9,11 @@
 const signagesite = {
     chromepath: '/usr/bin/chromium-browser',
     kioskurl: 'https://signage-site.example.com/',
+    dispWidth: 3840,
+    dispHeight: 2400,
     useeucookie: false,
+    use2ndeucookie: false,
+    useinterstitiallogin: false,
     uselogin: false,
     useagency: false,
     uselocation: false
@@ -18,6 +22,10 @@ const signagesite = {
 const firedepartment = {
     chromepath: '/usr/bin/chromium-browser',
     kioskurl: 'https://dashboard.iamresponding.com/',
+
+    // Need to know the display resolution for optimal sizing.
+    dispWidth: 1920,
+    dispHeight: 1080,
 
     // Your specific agency credentials go here:
     username: 'username',
@@ -32,10 +40,15 @@ const firedepartment = {
 
     // If using IAmResponding, you shouldn't need to change these:
     useeucookie: true,
-    eu_cookie_selector: '#moove_gdpr_cookie_info_bar > div > div > div.moove-gdpr-button-holder > button.mgbutton.moove-gdpr-infobar-allow-all.gdpr-fbo-0',
-    eu_cookie_selector_2: '#accept-policy',
-    uselogin: true,
+    eu_cookie_selector: '#accept-policy',
+
+    use2ndeucookie: false,
+    eu_cookie_selector_2: '#nolongerused',
+
+    useinterstitiallogin: false,
     login_button_selector: '#menu-item-27 > a',
+
+    uselogin: true,
     username_selector: '#Input_Username',
     password_selector: '#Input_Password',
     rememberme_selector: 'body > div.split-page > div.container-fluid > div > div.col-xl-7.col-lg-7.left-border > div.left-wrap > div > div > form > div.checkbox-container > label > span',

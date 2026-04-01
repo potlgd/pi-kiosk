@@ -64,7 +64,7 @@ The `npm install` step above will install the javascript module dependencies (cr
 
 ## Setting up Autostart
 
-There are several ways to handle autostarts in Raspbian. Since the default is that the "pi" user is auto-logged in, I found it most straightforward to use that user's personal autostart.
+There are several ways to handle autostarts in Raspbian, and they change as the desktop environment changes. Since the default is that the "pi" user is auto-logged in, I found it most straightforward to use that user's personal autostart.
 
 In later versions of Raspbian, I've found that autostart tends to get going before the network is ready, which can hamper this process. The recommendations are to use `raspi-config` to "Wait for Network Connection on Boot", but this didn't seem to be effective for me. Thus, this ugly little hack.
 
@@ -83,7 +83,7 @@ env AGENCY=firedepartment node /home/pi/pi-kiosk/index.js
 ```
 Make sure you set the **AGENCY** variable above.
 
-Then, at the bottom of your `/home/pi/.config/wayfire.ini` file, add an [autostart] section:
+Then, create a `/home/pi/.config/labwc/autostart` file:
 
 ```
 vi ~/.config/autostart/pi-kiosk.desktop
@@ -91,9 +91,7 @@ vi ~/.config/autostart/pi-kiosk.desktop
 
 
 ```
-[autostart]
-xdg-autostart = lxsession-xdg-autostart
-pi-kiosk = /home/pi/.config/autostart/pi-kiosk.sh
+/home/pi/.config/autostart/pi-kiosk.sh
 ```
 
 ## Hide Chrome Warnings
@@ -113,7 +111,7 @@ with content:
 
 ## License
 
-Copyright 2024, Chris M. Miller
+Copyright 2026, Chris M. Miller
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 

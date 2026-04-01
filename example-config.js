@@ -7,7 +7,7 @@
  */
 
 const signagesite = {
-    chromepath: '/usr/bin/chromium-browser',
+    chromepath: '/usr/bin/chromium',
     kioskurl: 'https://signage-site.example.com/',
     dispWidth: 3840,
     dispHeight: 2400,
@@ -20,7 +20,7 @@ const signagesite = {
 };
 
 const firedepartment = {
-    chromepath: '/usr/bin/chromium-browser',
+    chromepath: '/usr/bin/chromium',
     kioskurl: 'https://dashboard.iamresponding.com/',
 
     // Need to know the display resolution for optimal sizing.
@@ -55,13 +55,12 @@ const firedepartment = {
     login_selector: 'body > div.login-section.split-page > div > div > div:nth-child(1) > div > div.left-content > div > form > div.row.my-mt0-mob-4 > div:nth-child(1) > div > button',
 
     useagency: true,
-    agency_selector: '#ddlsubsciribers'
+    agency_selector: '#Input_Agency'
 };
 
 const config = {
     signagesite,
     firedepartment,
-    firedepartment-newiar
 };
 
 const agency = process.env.AGENCY;

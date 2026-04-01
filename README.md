@@ -23,6 +23,27 @@ This tiny repo is hopefully useful for turning a Raspberry Pi into a public info
 
 This procedure was developed on the Raspberry Pi 4, though will probably work on at least some earlier models.
 
+After imaging the SD card, if you intend it to run without keyboard or mouse, a few files dropped in the "bootfs" may benefit you:
+```
+sudo touch ssh
+```
+```
+## userconf.txt
+## echo 'my secret password' | openssl passwd -6 -stdin
+pi:$6$c70VP........
+```
+```
+## network-config
+network:
+  version: 2
+  wifis:
+    wlan0:
+      dhcp4: true
+      access-points:
+        "YOUR_WIFI_SSID":
+          password: "YOUR_WIFI_PASSWORD"
+```
+
 Step 2 above recommends a few package installs:
 
 * npm - Node Package Manager - this allows the later use of the [puppeteer Node.js module](https://github.com/puppeteer/puppeteer/), which is critical for this solution.
